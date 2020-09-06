@@ -7,13 +7,14 @@ import java.io.InputStream
 import java.net.URL
 import java.util.stream.Collectors
 import java.util.stream.Stream
+import kotlin.streams.asSequence
 
 class Hangman {
     private val wordsSet: MutableSet<String>
 
     constructor(wordsStream: InputStream) {
         this.wordsSet = wordsStream.bufferedReader().use {
-            it.lines().collect(Collectors.toSet())
+            it.lines().asSequence().toHashSet()
         }
     }
 
