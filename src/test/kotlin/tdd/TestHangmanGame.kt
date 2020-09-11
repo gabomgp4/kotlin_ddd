@@ -2,6 +2,7 @@ package tdd
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 
 class TestHangmanGame {
@@ -36,6 +37,7 @@ class TestHangmanGame {
         "???".forEach { hangmanGame.guess(it) }
         assertEquals(hangmanGame.status, HangamanGameStatus.Lossed)
         assertEquals(hangmanGame.maskedWord, "________")
+        assertFailsWith<HangmanGameException> { hangmanGame.guess('?') }
     }
 
     @Test
@@ -44,5 +46,7 @@ class TestHangmanGame {
         testedWord.forEach { hangmanGame.guess(it) }
         assertEquals(hangmanGame.status, HangamanGameStatus.Gained)
         assertEquals(hangmanGame.maskedWord, testedWord)
+        assertFailsWith<HangmanGameException> { hangmanGame.guess('?') }
     }
+
 }
