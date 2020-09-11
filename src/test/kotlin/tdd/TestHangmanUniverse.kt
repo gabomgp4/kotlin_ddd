@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import kotlin.random.Random
 import kotlin.test.assertTrue
 
-class TestHangman {
+class TestHangmanUniverse {
 
     @Test
     fun test_lengthOfFetchedWord() {
@@ -36,7 +36,7 @@ class TestHangman {
     }
 
     fun getHangmanFromResource() = run {
-        val wordsStream = TestHangman::class.java.classLoader.getResourceAsStream("WordSource.txt")
-        Hangman(wordsStream)
+        val wordsStream = TestHangmanUniverse::class.java.classLoader.getResourceAsStream("WordSource.txt")
+        HangmanUniverse(wordsStream)
     }
 }

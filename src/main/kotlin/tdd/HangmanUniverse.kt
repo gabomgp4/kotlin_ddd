@@ -9,7 +9,7 @@ import java.util.stream.Collectors
 import java.util.stream.Stream
 import kotlin.streams.asSequence
 
-class Hangman {
+class HangmanUniverse {
     private val wordsSet: MutableSet<String>
 
     constructor(wordsStream: InputStream) {
