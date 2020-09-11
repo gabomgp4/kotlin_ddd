@@ -43,13 +43,13 @@ class HangmanGame(val testedWord: String, val maxFails: Int) {
         private set
 
     var status = HangamanGameStatus.Playing
-        private set;
+        private set
 
     var fails = 0
-        private set;
+        private set
 }
 
-public class HangmanGameException(text: String) : Exception(text)
+class HangmanGameException(text: String) : Exception(text)
 
 enum class HangamanGameStatus {
     Playing,
